@@ -1,16 +1,21 @@
 const express =require ("express")
 const cors=require("cors")
-const dotnev=require("dotenv")
+const dotenv = require('dotenv');
+
 const  mongoose = require('mongoose');
 const UserAuth =require("./Routes/UserAuth")
-dotnev.config();
+const router=express.Router();
+dotenv.config();
+// const port = process.env.PORT || 5000;
 const app=express();
+app.use(cors());
 app.use(express.json());
-const port = process.env.PORT || 5000;
-router.use("/UserAuth",UserAuth)
-router.use("/GetTodos") 
-mongoose.connect(process.env.DBURI,()=>{
-    console.log("Connecte to DB")
-    app.listen(port, () => console.log(`Server running on port ${port} 🔥`));
-})
-
+app.use("/UserAuth",UserAuth)
+//app.use("/GetTodos") 
+mongoose.connect(process.env.DBURI).
+then(()=>{  //Starting the server
+  console.log("DB connected")
+  app.listen(process.env.PORT,()=>{
+      console.log("Server is Running...",process.env.PORT)
+  })}).
+catch((e)=>{console.log("not Connected",e)})
