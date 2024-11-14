@@ -1,6 +1,9 @@
 const router = require('express').Router();
-const {verifyinput}=require('../Middleware/UserAuthMiddleware')
-const{usersignup}=require("../Controllers/UserControllers")
-router.route("/signin").post(verifyinput,usersignup)
+const {verifyInput,verifyLoginInput}=require('../Middleware/UserAuthMiddleware')
+const{usersignup,userLogin}=require("../Controllers/UserControllers")
+// User signin/signp Routes--------------------------
+router.route("/signup").post(verifyInput,usersignup)
+router.route("/signin").get(verifyLoginInput,userLogin)
 
+// ---------------------------
 module.exports=router
