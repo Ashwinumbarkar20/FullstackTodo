@@ -1,9 +1,6 @@
 const mongoose = require('mongoose');
 
-cons todoSchema=new mongoose.const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const  = new Schema({
+const todoSchema=new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -11,8 +8,7 @@ const  = new Schema({
   desc:{
     type:String,
     required:true,
-    minlength:10,
-    maxlength:30
+   
   },
   isCompleted:{
     type:Boolean,
