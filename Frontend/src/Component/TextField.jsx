@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-export default function TextField({type,title,onchange,value,placeholder}) {
+export default function TextField({name,type,title,onchange,value,placeholder}) {
   return (
     
         <TextFieldComponent className='Login-Component'>
         <label htmlFor=""> {title}
         </label>
-        <input type={type} onChange={onchange} value={value} placeholder={placeholder} />
+        <input name={name} type={type} onChange={onchange} value={value} placeholder={placeholder} />
     </TextFieldComponent>
     
   )
