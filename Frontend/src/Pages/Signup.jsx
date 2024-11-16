@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
-export default function Login() {
+import TextField from '../Component/TextField';
+import Btn from '../Component/Btn';
+export default function Signup() {
     const[loginData,setLoginData]=useState({
 username:"",
 email:"",
@@ -13,24 +15,12 @@ password:""
     <div>
       <LoginForm onSubmit={hadlesubmit}>
     <h3>Create User</h3>
-    <div className='Login-Component'>
-        <label htmlFor=""> Enter  Name 
-        </label>
-        <input type="text" placeholder='John Doe' />
-    </div>
-    <div  className='Login-Component'>
-        <label htmlFor=""> Enter Email
-            
-        </label>
-        <input type="text" placeholder='John_Doe@xyz.com' />
-    </div>
-    <div  className='Login-Component'>
-        <label htmlFor=""> Enter Password
-            
-        </label>
-        <input type="text" placeholder='Password' />
-    </div>
-    <button type='submit'>Create User</button>
+    <TextField type="text" title="Enter Name" onchange={""} value={""}  placeholder={"e.g. John Doe"}> </TextField>
+    <TextField type="text" title="Enter Email_id" onchange={""} value={""}  placeholder={"e.g. JohnDoe@xyz.com"}> </TextField>
+    <TextField type="Password" title="Enter Password" onchange={""} value={""}  placeholder={"e.g. John Doe"}> </TextField>
+    <Btn type="Submit" title="Create User" handleclickfun={"handlesubmit"} disbale={false} />
+  
+    
       </LoginForm>
     </div>
   )
@@ -50,18 +40,18 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-
 width:100%;
     input{
         border:none;
          width:90%;
+         padding:5px;
           border-bottom:1px solid black;
           margin-bottom:10px;        
+         outline:none
     }
     label{
         border:none;
-         width:90%;
-        
+        width:90%;
         margin-bottom:10px;
     }
   
