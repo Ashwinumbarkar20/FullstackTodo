@@ -32,10 +32,11 @@ const Addtodo=async (req,res)=>{
 }
 
 const Editsingletodo=async(req,res)=>{
+    console.log(req.body)
     if(req.body.id){
-        const updatedtodo=todos.findByIdAndUpdate(req.body.id,{...req.body},{new:true})
+        const updatedtodo=await todos.findByIdAndUpdate(req.body.id,{...req.body},{new:true})
         if(updatedtodo){
-            res.status(200).send({success:true,data:updatedtodo,Message:"Id is required"})
+            res.status(200).send({success:true,data:updatedtodo,Message:"Todo is updated"})
         }
         else{
             res.status(400).send({Message:"Id is required"})

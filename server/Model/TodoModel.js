@@ -1,3 +1,4 @@
+const { required } = require('joi');
 const mongoose = require('mongoose');
 
 const todoSchema=new mongoose.Schema({
@@ -20,6 +21,10 @@ const todoSchema=new mongoose.Schema({
    },
    updateAt:{
     type:Date
+   },
+   userid:{
+    type:String,
+    required:true
    }
 });
 const todos=mongoose.model("todo",todoSchema);

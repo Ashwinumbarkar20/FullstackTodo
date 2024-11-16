@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
 const {verifytoken} =require("../Middleware/UserAuthMiddleware")
-const {getAlltodo}=require("../Controllers/TodoController")
+const {getAlltodo,Editsingletodo,Addtodo,DeleteTodo}=require("../Controllers/TodoController")
 router.route("/getAllTodos").get(verifytoken,getAlltodo)
  
-// router.route("/Alltodos").post("middleware","controller")
-// router.route("/Alltodos").put("middleware","controller")
-// router.route("/Alltodos").delete("middleware","controller")
+ router.route("/Deletetodo").delete(verifytoken,DeleteTodo)
+ router.route("/updatetodo").put(verifytoken,Editsingletodo)
+ router.route("/Addtodo").post(verifytoken,Addtodo)
 module.exports=router
