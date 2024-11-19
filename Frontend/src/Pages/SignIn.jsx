@@ -31,7 +31,7 @@ if(res.status===200)
   const token=res.data.token;
   console.log(token)
   localStorage.setItem("token",JSON.stringify(token))
-  navigate("/home")
+  navigate("/Home")
 }
 else if(res.status===404){
   toast.error("User Not Found, please do Signup")

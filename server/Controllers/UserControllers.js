@@ -29,7 +29,7 @@ if(await bcrypt.compare(req.body.password, user.password)){
  username:user.username,
  email:user.email       
     }
-const token=jwt.sign(payload,process.env.SCERETKEY,{expiresIn:"24h"})
+const token=jwt.sign(payload,process.env.SCERETKEY,{expiresIn:"1h"})
 res.status(200).json({Message:"login Succesful",useDetails:{userid:user._id,
  username:user.username,
  email:user.email},token:token})
